@@ -5,6 +5,13 @@ import { StaticPage, StaticSection } from "@/components/ui/StaticPage";
 export const metadata: Metadata = {
   title: `About · ${TOOL_NAME}`,
   description: `What ${TOOL_NAME} is, how it works, and who makes it.`,
+  alternates: { canonical: "/about/" },
+  openGraph: {
+    title: `About · ${TOOL_NAME}`,
+    description: `What ${TOOL_NAME} is, how it works, and who makes it.`,
+    url: "/about/",
+    type: "website",
+  },
 };
 
 export default function AboutPage() {

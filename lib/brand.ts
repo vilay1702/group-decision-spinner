@@ -24,7 +24,19 @@ export const MAKER_CREDIT = "Made with ♥ by Vilay";
 export const TAGLINE = "Free, fast tools that run in your browser.";
 
 export const TOOL_NAME = "Decision Spinner";
-export const PAGE_TITLE = TOOL_NAME;
+
+/** Canonical origin — must match public/CNAME. Used for metadataBase, sitemap, robots, JSON-LD. */
+export const SITE_URL = "https://spin.vilaybende.com";
+
+/** <title> — keyword-targeted ("spin the wheel" / "wheel spinner"), brand last. */
+export const PAGE_TITLE = "Spin the Wheel — Free Wheel Spinner | Decision Spinner";
+
+/**
+ * Meta/OG/JSON-LD description — keyword-targeted for search snippets.
+ * The visible on-page tagline stays TOOL_DESCRIPTION.
+ */
+export const META_DESCRIPTION =
+  "Free wheel spinner for random picks and group decisions. Add options, spin the wheel, and get a fair winner. No signup, nothing uploaded, works on any device.";
 
 /** Exactly one H1 per page — the tool's keyword-targeted description (§4). */
 export const TOOL_H1 = "Group decision spinner";

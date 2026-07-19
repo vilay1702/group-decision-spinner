@@ -5,6 +5,13 @@ import { StaticPage, StaticSection } from "@/components/ui/StaticPage";
 export const metadata: Metadata = {
   title: `Privacy · ${TOOL_NAME}`,
   description: `How ${TOOL_NAME} handles your data: everything stays in your browser.`,
+  alternates: { canonical: "/privacy/" },
+  openGraph: {
+    title: `Privacy · ${TOOL_NAME}`,
+    description: `How ${TOOL_NAME} handles your data: everything stays in your browser.`,
+    url: "/privacy/",
+    type: "website",
+  },
 };
 
 export default function PrivacyPage() {

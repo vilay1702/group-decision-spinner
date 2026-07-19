@@ -5,7 +5,13 @@ import type { SpinOption, SpinRecord } from "@/lib/types";
 import { useLocalStorage } from "@/lib/useLocalStorage";
 import { sounds } from "@/lib/sounds";
 import { copy } from "@/lib/copy";
-import { TOOL_DESCRIPTION, TOOL_H1 } from "@/lib/brand";
+import {
+  META_DESCRIPTION,
+  SITE_URL,
+  TOOL_DESCRIPTION,
+  TOOL_H1,
+  TOOL_NAME,
+} from "@/lib/brand";
 import { Wheel } from "@/components/Wheel";
 import { Confetti } from "@/components/Confetti";
 import { WinnerModal } from "@/components/WinnerModal";
@@ -14,6 +20,21 @@ import { HistoryPanel } from "@/components/HistoryPanel";
 import { ToolShell } from "@/components/ui/ToolShell";
 
 const HISTORY_LIMIT = 50;
+
+// schema.org WebApplication — client components are prerendered at build
+// time, so this lands in the static HTML that crawlers fetch.
+const JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  name: TOOL_NAME,
+  url: `${SITE_URL}/`,
+  description: META_DESCRIPTION,
+  applicationCategory: "UtilityApplication",
+  operatingSystem: "Any",
+  browserRequirements: "Requires JavaScript",
+  isAccessibleForFree: true,
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+};
 
 const HOW_IT_WORKS = [
   "Add your options — dinner spots, movie picks, chore victims — or load a preset.",
@@ -97,6 +118,11 @@ export default function Home() {
       privacyLine={copy.privacy}
       howItWorks={HOW_IT_WORKS}
     >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }}
+      />
+
       <Confetti burst={burst} />
 
       <div className="relative grid gap-6 lg:grid-cols-[1.2fr_1fr] lg:items-start">
