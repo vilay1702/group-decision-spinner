@@ -17,6 +17,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  // Must match public/CNAME — makes OG/social URLs absolute.
+  metadataBase: new URL("https://spin.vilaybende.com"),
   title: PAGE_TITLE,
   description: TOOL_DESCRIPTION,
   applicationName: TOOL_NAME,

@@ -7,6 +7,9 @@ import {
   TOOL_NAME,
 } from "@/lib/brand";
 
+// Required for `output: "export"` — the image is generated at build time.
+export const dynamic = "force-static";
+
 export const alt = TOOL_NAME;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
