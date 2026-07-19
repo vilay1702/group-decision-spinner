@@ -22,7 +22,9 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          # 22+ required: the build script's --no-experimental-webstorage
+          # flag doesn't exist on older Node and fails NODE_OPTIONS parsing.
+          node-version: 24
           cache: npm
 
       - run: npm ci
