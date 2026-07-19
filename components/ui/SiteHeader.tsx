@@ -1,8 +1,12 @@
 import Link from "next/link";
 import { ENDORSEMENT, TOOL_NAME } from "@/lib/brand";
 import { Mark } from "./Mark";
+import { ThemeToggle } from "./ThemeToggle";
 
-/** Shared chrome: tool wordmark (the hero) + endorsement lockup (§2). */
+/**
+ * Shared chrome: tool wordmark (the hero) + endorsement lockup (§2) on the
+ * left, header actions (theme toggle) on the right.
+ */
 export function SiteHeader() {
   return (
     <header className="border-b border-border bg-surface">
@@ -20,6 +24,9 @@ export function SiteHeader() {
             </span>
           )}
         </Link>
+        <div className="ml-auto flex items-center gap-2">
+          <ThemeToggle />
+        </div>
       </div>
     </header>
   );

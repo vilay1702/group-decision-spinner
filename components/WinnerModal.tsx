@@ -57,7 +57,7 @@ export function WinnerModal({
       aria-label={`Winner: ${winner.label}`}
     >
       <div
-        className="absolute inset-0 bg-text/40 backdrop-blur-sm"
+        className="absolute inset-0 bg-scrim backdrop-blur-sm"
         onClick={onClose}
       />
       <div className="relative animate-pop-in w-full max-w-sm rounded-lg border border-border bg-surface p-6 sm:p-8 text-center shadow-pop max-h-[85dvh] overflow-y-auto">

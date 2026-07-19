@@ -26,9 +26,10 @@ export default function PrivacyPage() {
 
       <StaticSection heading="What's stored, and where">
         <p>
-          {TOOL_NAME} saves three things in your browser’s local storage, so
+          {TOOL_NAME} saves four things in your browser’s local storage, so
           your wheel survives a refresh: your list of options, your spin
-          history, and whether sounds are muted.
+          history, whether sounds are muted, and your light-or-dark theme
+          choice.
         </p>
         <p>
           That data lives only on your device. It’s not sent to a server, and

@@ -39,6 +39,9 @@ export const copy = {
   acceptFate: "Accept your fate",
   onARoll: (n: number, label: string) => `That's win #${n} for ${label}!`,
 
+  // Header actions
+  themeToggle: "Switch between light and dark",
+
   // Errors
   errorTitle: "The wheel came off",
   errorBody:

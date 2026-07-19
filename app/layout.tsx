@@ -1,6 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, Inter } from "next/font/google";
-import { META_DESCRIPTION, PAGE_TITLE, SITE_URL, TOOL_NAME } from "@/lib/brand";
+import {
+  META_DESCRIPTION,
+  PAGE_TITLE,
+  SITE_URL,
+  THEME_STORAGE_KEY,
+  TOOL_NAME,
+} from "@/lib/brand";
 import "./globals.css";
 
 const bricolage = Bricolage_Grotesque({
@@ -60,10 +66,21 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#FAFAF9",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#FAFAF9" },
+    { media: "(prefers-color-scheme: dark)", color: "#0C0A09" },
+  ],
   width: "device-width",
   initialScale: 1,
 };
+
+/**
+ * Runs before first paint so a stored dark preference never flashes light.
+ * Stored choice wins; absent means "follow the system".
+ */
+const themeInitScript = `try{var t=localStorage.getItem(${JSON.stringify(
+  THEME_STORAGE_KEY,
+)});if(t==="dark"||(t!=="light"&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.classList.add("dark")}catch(e){}`;
 
 export default function RootLayout({
   children,
@@ -71,10 +88,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    // suppressHydrationWarning: the theme script may add `class="dark"`
+    // before React hydrates — that mismatch is intentional.
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${bricolage.variable} ${inter.variable} font-sans bg-bg text-text antialiased min-h-dvh`}
       >
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         {children}
       </body>
     </html>

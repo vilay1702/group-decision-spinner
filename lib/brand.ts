@@ -25,6 +25,13 @@ export const TAGLINE = "Free, fast tools that run in your browser.";
 
 export const TOOL_NAME = "Decision Spinner";
 
+/**
+ * localStorage key for the light/dark choice ("light" | "dark", raw string —
+ * absent means "follow the system"). Read pre-paint by the no-flash script
+ * in app/layout.tsx and written by ThemeToggle. Adapt the prefix per tool.
+ */
+export const THEME_STORAGE_KEY = "gds:theme:v1";
+
 /** Canonical origin — must match public/CNAME. Used for metadataBase, sitemap, robots, JSON-LD. */
 export const SITE_URL = "https://spin.vilaybende.com";
 

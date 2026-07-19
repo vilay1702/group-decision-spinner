@@ -285,8 +285,10 @@ export function Wheel({
               <path
                 key={i}
                 d={slicePath(i * 60, (i + 1) * 60)}
-                fill={i % 2 === 0 ? "#F5F5F4" : "#EDEBEA"}
-                stroke="#E7E5E4"
+                fill={
+                  i % 2 === 0 ? "var(--color-surface)" : "var(--color-border)"
+                }
+                stroke="var(--color-border)"
                 strokeWidth="0.4"
               />
             ))}
@@ -306,7 +308,7 @@ export function Wheel({
                   key={o.id}
                   d={slicePath(i * seg, (i + 1) * seg)}
                   fill={o.color}
-                  stroke="#FFFFFF"
+                  stroke="var(--color-surface)"
                   strokeWidth="0.6"
                   className={cls}
                 />
