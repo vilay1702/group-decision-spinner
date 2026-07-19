@@ -1,9 +1,10 @@
 import { BRAND_COLORS } from "@/lib/brand";
 
 /**
- * The tool's own icon, per the brand doc's construction kit (§2):
- * rounded square canvas at --radius-lg curvature, one flat geometric glyph,
- * white on the tool's accent. Same artwork as app/icon.svg — keep in sync.
+ * The family mark (logo/README.md): two rounded bars on a 45° diagonal,
+ * each with a darker chisel-fold tip on its outer end. Bar A is the parent
+ * indigo; Bar B is this tool's accent. Same artwork as app/icon.svg —
+ * keep in sync; never touch the geometry.
  */
 export function Mark({
   size = 28,
@@ -16,18 +17,47 @@ export function Mark({
     <svg
       width={size}
       height={size}
-      viewBox="0 0 64 64"
+      viewBox="0 0 200 200"
       aria-hidden="true"
       className={`shrink-0 ${className}`}
     >
-      <rect width="64" height="64" rx="20" fill={BRAND_COLORS.accent} />
-      <g stroke="#fff" strokeWidth="4" strokeLinecap="round">
-        <circle cx="32" cy="32" r="17" fill="none" />
-        <line x1="32" y1="15" x2="32" y2="49" />
-        <line x1="46.7" y1="23.5" x2="17.3" y2="40.5" />
-        <line x1="46.7" y1="40.5" x2="17.3" y2="23.5" />
+      <defs>
+        <clipPath id="mark-bar-a">
+          <rect x="30" y="50" width="114" height="38" rx="11" />
+        </clipPath>
+        <clipPath id="mark-bar-b">
+          <rect x="56" y="112" width="114" height="38" rx="11" />
+        </clipPath>
+      </defs>
+      <rect width="200" height="200" rx="40" fill={BRAND_COLORS.markCanvas} />
+      <g transform="rotate(-45 100 100)">
+        <rect
+          x="30"
+          y="50"
+          width="114"
+          height="38"
+          rx="11"
+          fill={BRAND_COLORS.markParent}
+        />
+        <polygon
+          points="118,50 144,50 144,88 128,88"
+          clipPath="url(#mark-bar-a)"
+          fill={BRAND_COLORS.markParentFold}
+        />
+        <rect
+          x="56"
+          y="112"
+          width="114"
+          height="38"
+          rx="11"
+          fill={BRAND_COLORS.accent}
+        />
+        <polygon
+          points="82,150 56,150 56,112 72,112"
+          clipPath="url(#mark-bar-b)"
+          fill={BRAND_COLORS.markAccentFold}
+        />
       </g>
-      <circle cx="32" cy="32" r="5" fill="#fff" />
     </svg>
   );
 }

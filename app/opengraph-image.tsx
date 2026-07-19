@@ -37,21 +37,55 @@ export default function OpenGraphImage() {
         }}
       >
         <div style={{ display: "flex", flexDirection: "column" }}>
-          {/* The tool's icon — same construction-kit artwork as app/icon.svg */}
+          {/* The family mark — same artwork as app/icon.svg */}
           <svg
             width={96}
             height={96}
-            viewBox="0 0 64 64"
+            viewBox="0 0 200 200"
             style={{ marginBottom: 44 }}
           >
-            <rect width="64" height="64" rx="20" fill={BRAND_COLORS.accent} />
-            <g stroke="#fff" strokeWidth="4" strokeLinecap="round">
-              <circle cx="32" cy="32" r="17" fill="none" />
-              <line x1="32" y1="15" x2="32" y2="49" />
-              <line x1="46.7" y1="23.5" x2="17.3" y2="40.5" />
-              <line x1="46.7" y1="40.5" x2="17.3" y2="23.5" />
+            <defs>
+              <clipPath id="og-bar-a">
+                <rect x="30" y="50" width="114" height="38" rx="11" />
+              </clipPath>
+              <clipPath id="og-bar-b">
+                <rect x="56" y="112" width="114" height="38" rx="11" />
+              </clipPath>
+            </defs>
+            <rect
+              width="200"
+              height="200"
+              rx="40"
+              fill={BRAND_COLORS.markCanvas}
+            />
+            <g transform="rotate(-45 100 100)">
+              <rect
+                x="30"
+                y="50"
+                width="114"
+                height="38"
+                rx="11"
+                fill={BRAND_COLORS.markParent}
+              />
+              <polygon
+                points="118,50 144,50 144,88 128,88"
+                clipPath="url(#og-bar-a)"
+                fill={BRAND_COLORS.markParentFold}
+              />
+              <rect
+                x="56"
+                y="112"
+                width="114"
+                height="38"
+                rx="11"
+                fill={BRAND_COLORS.accent}
+              />
+              <polygon
+                points="82,150 56,150 56,112 72,112"
+                clipPath="url(#og-bar-b)"
+                fill={BRAND_COLORS.markAccentFold}
+              />
             </g>
-            <circle cx="32" cy="32" r="5" fill="#fff" />
           </svg>
           <div
             style={{

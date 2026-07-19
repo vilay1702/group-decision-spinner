@@ -58,6 +58,12 @@ export const TOOL_DESCRIPTION =
  */
 export const BRAND_COLORS = {
   accent: "#DC2626",
+  /** Family-mark colors (logo/README.md): Bar A is always parent indigo;
+      Bar B is this tool's accent; folds are the ~800 shade of each hue. */
+  markCanvas: "#FAFAF9",
+  markParent: "#4F46E5",
+  markParentFold: "#3730A3",
+  markAccentFold: "#991B1B",
   accentHover: "#B91C1C",
   accentSoft: "#FEF2F2",
   bg: "#FAFAF9",
