@@ -5,6 +5,7 @@ import type { SpinOption, SpinRecord } from "@/lib/types";
 import { useLocalStorage } from "@/lib/useLocalStorage";
 import { sounds } from "@/lib/sounds";
 import { copy } from "@/lib/copy";
+import { track } from "@/lib/track";
 import {
   META_DESCRIPTION,
   SITE_URL,
@@ -78,6 +79,7 @@ export default function Home() {
   const handleResult = useCallback(
     (option: SpinOption) => {
       setSpinning(false);
+      track("spin_done");
       setHistory((prev) =>
         [
           {

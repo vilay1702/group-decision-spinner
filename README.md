@@ -38,7 +38,8 @@ is ever favored. You control the flick; fate controls the result.
 
 Your options, spin history, and sound preference are saved in this
 browser only, so everything survives a refresh. Nothing is uploaded —
-there are no accounts, no trackers, and no server to send anything to.
+there are no accounts, no third-party trackers, and no cookies — just
+anonymous, cookieless usage counts on our own analytics (DNT respected).
 See the Privacy page in the app for details.
 
 ## Coming back

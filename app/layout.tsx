@@ -7,6 +7,7 @@ import {
   THEME_STORAGE_KEY,
   TOOL_NAME,
 } from "@/lib/brand";
+import { Analytics } from "@/components/Analytics";
 import "./globals.css";
 
 const bricolage = Bricolage_Grotesque({
@@ -96,6 +97,7 @@ export default function RootLayout({
       >
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         {children}
+        <Analytics />
       </body>
     </html>
   );
