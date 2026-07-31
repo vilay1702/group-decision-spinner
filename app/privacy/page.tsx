@@ -26,13 +26,14 @@ export default function PrivacyPage() {
 
       <StaticSection heading="What's stored, and where">
         <p>
-          {TOOL_NAME} saves four things in your browser’s local storage, so
+          {TOOL_NAME} saves five things in your browser’s local storage, so
           your wheel survives a refresh: your list of options, your spin
-          history, whether sounds are muted, and your light-or-dark theme
-          choice.
+          history, whether sounds are muted, your light-or-dark theme
+          choice, and the random analytics identifier described below.
         </p>
         <p>
-          That data lives only on your device. It’s not sent to a server, and
+          Apart from the analytics identifier, that data lives only on your
+          device. It’s not sent to a server, and
           it isn’t shared between your devices or browsers.
         </p>
       </StaticSection>
@@ -40,11 +41,17 @@ export default function PrivacyPage() {
       <StaticSection heading="No accounts, no third-party trackers">
         <p>
           There’s nothing to sign up for, and no third-party trackers,
-          advertising pixels, or cookies. We count anonymous usage on our
-          own self-hosted analytics: which pages are visited and which
-          tools are used. No cookies are set, your IP address is never
-          stored, nothing identifies you personally, and if your browser
-          sends Do Not Track we don’t count you at all.
+          advertising pixels, or cookies. We count usage on our own
+          self-hosted analytics: pages visited, tools used, your browser
+          and operating system type, and your approximate location
+          (country and city, estimated from your IP address — the address
+          itself is never stored).
+        </p>
+        <p>
+          To tell returning visitors apart, a random identifier is kept in
+          your browser’s local storage. It says nothing about who you are,
+          and clearing this site’s data removes it. If your browser sends
+          Do Not Track, we don’t count you at all.
         </p>
       </StaticSection>
 
